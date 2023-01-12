@@ -7,7 +7,7 @@
 
     $sql = 'select * from `information` where id = '.$_GET['user'];
     $result = mysqli_query($con, $sql);
-    $user = $row = mysqli_fetch_assoc($result);
+    $user = mysqli_fetch_assoc($result);
 
     if(!$result){
         header('Location:user.php');
