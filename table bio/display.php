@@ -6,7 +6,8 @@
     while ($data = $exec->fetch_object()){
         $users[] = $data;
     }
-
+    // print_r($users);
+    // exit;
 ?>
 
 <!DOCTYPE html>
