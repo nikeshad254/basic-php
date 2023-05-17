@@ -1,46 +1,29 @@
 <?php
 
-$db_host = "localhost";
-$db_user = "www_cms";
-$db_pass = "*oxGvG5lYD!WkD/R";
-$db_name = "cms";
-$articles;
-$conn =  mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+require './includes/database.php';
 
-if(mysqli_connect_error()){
-    echo mysqli_connect_error();
-    exit;
-}
-
-if(is_numeric($_GET['id'])){
-    $sql = "select * from article where id = ".$_GET['id'];
+if (is_numeric($_GET['id'])) {
+    $sql = "select * from article where id = " . $_GET['id'];
     $result = mysqli_query($conn, $sql);
-    if($result === false){
+    if ($result === false) {
         echo mysqli_error($conn);
-    }
-    else{
+    } else {
         $articles = mysqli_fetch_assoc($result);
         // var_dump($articles);
     }
-}
-else{
+} else {
     $articles = null;
 }
 
+require './includes/header.php';
 ?>
-<body>
-    <header>
-        <h1>My Blog</h1>
-    </header>
-
-    <main>
-        <?php if($articles === null ): ?>
-        <p>No articles found</p>
-        <?php else:  ?>
-        <article>
-            <h2><?= $articles['title'] ?></h2>
-            <p><?= $articles['context'] ?></p>
-        </article>
-        <?php endif; ?>
-    </main>
-</body>
+<?php if ($articles === null) : ?>
+    <p>No articles found</p>
+<?php else :  ?>
+    <article>
+        <h2><?= $articles['title'] ?></h2>
+        <p><?= $articles['context'] ?></p>
+    </article>
+<?php endif;
+require './includes/footer.php'
+?>
