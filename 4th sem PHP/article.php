@@ -22,7 +22,7 @@ require './includes/header.php';
 <?php else :  ?>
     <article>
         <h2><?= $articles['title'] ?></h2>
-        <p><?= $articles['context'] ?></p>
+        <p><?= $articles['content'] ?></p>
     </article>
 <?php endif;
 require './includes/footer.php'

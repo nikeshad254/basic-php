@@ -31,7 +31,7 @@ require './includes/header.php';
                             <?= $article['title']; ?>
                         </a>
                     </h2>
-                    <p><?= $article['context'] ?></p>
+                    <p><?= $article['content'] ?></p>
                 </article>
             </li>
         <?php endforeach; ?>
