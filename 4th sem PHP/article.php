@@ -3,6 +3,7 @@
 require './includes/database.php';
 
 if (is_numeric($_GET['id'])) {
+    $conn = getDB();
     $sql = "select * from article where id = " . $_GET['id'];
     $result = mysqli_query($conn, $sql);
     if ($result === false) {

@@ -2,6 +2,7 @@
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     require './includes/database.php';
+    $conn = getDB();
     $sql = "INSERT INTO article(title, content, published_at) VALUES('".$_POST['title']."', '".$_POST['content']."','".$_POST['published_at']."')";
     
     $result = mysqli_query($conn, $sql);

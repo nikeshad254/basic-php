@@ -1,6 +1,7 @@
 <?php
 require './includes/database.php';
 
+$conn = getDB();
 $sql = "select * from article";
 $result = mysqli_query($conn, $sql);
 if ($result === false) {
