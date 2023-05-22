@@ -14,6 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($content == '') {
         $error[] = 'content is required';
     }
+    if($published_at != ''){
+        $data_time = date_create_from_format('Y-m-d H:i:s', $published_at);
+        if($data_time === false){
+            $error[] = 'invalid date & time';
+        }
+    }
     if (empty($error)) {
         $conn = getDB();
         $sql = "INSERT INTO article (title, content, published_at) VALUES (?,?,?)";
@@ -56,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div>
         <label for="published_at" value="<?= htmlspecialchars($published_at); ?>">Published At</label>
-        <input type="datetime-local" name="published_at" id="published_at">
+        <input type="datetime" name="published_at" id="published_at">
     </div>
     <button>Add</button>
 </form>
