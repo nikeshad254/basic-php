@@ -30,7 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_stmt_bind_param($stmt, 'sss', $title, $content, $published_at);
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
-                echo 'Inserted record with id = ' . $id;
+                
+                if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'){
+                    $protocol = 'https';
+                }else{
+                    $protocol = 'http';
+                }
+                header("Location: $protocol://".$_SERVER['HTTP_HOST']."/basic-php/4th%20sem%20PHP/article.php?id=$id");
             } else {
                 echo mysqli_stmt_error($stmt);
             }
