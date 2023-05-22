@@ -16,6 +16,7 @@ if ($result === false) {
 require './includes/header.php';
 ?>
 
+<a href="/basic-php/4th%20sem%20PHP/new-article.php">New Article</a>
 
 <?php if (empty($articles)) : ?>
     <p>no articles found</p>
