@@ -19,4 +19,28 @@ function getArticle($conn, $id){
     }
 }
 
+function validateArticle($title, $content, $published_at){
+    $errors = [];
+    if($title == ''){
+        $errors[] = "Title is Required";
+    }
+    if($content == ''){
+        $errors[] = "Content is Required";
+    }
+    if($published_at != ''){
+        $date_time = date_create_from_format('Y-m-d H:i:s', $published_at);
+        print_r($date_time);
+        if($date_time === false){
+            $errors[] = "invalid data & time";
+        }else{
+            $date_errors = date_get_last_errors();
+            if( $date_errors['warning_count'] > 0){
+                $errors[] = "invalid date and time";
+            }
+        }
+    }
+    return $errors;
+
+}
+
 ?>

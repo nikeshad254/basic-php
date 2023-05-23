@@ -1,5 +1,6 @@
 <?php
 require 'includes/database.php';
+require 'includes/article.php';
 $error = [];
 $title = '';
 $content = '';
@@ -8,23 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
     $published_at = $_POST['published_at'];
-    if ($title == '') {
-        $error[] = 'title is required';
-    }
-    if ($content == '') {
-        $error[] = 'content is required';
-    }
-    if($published_at != ''){
-        $data_time = date_create_from_format('Y-m-d H:i:s', $published_at);
-        if($data_time === false){
-            $error[] = 'invalid date & time';
-        }
-    }
+
+    $error = validateArticle($title, $content, $published_at);
+
     if (empty($error)) {
         $conn = getDB();
         $sql = "INSERT INTO article (title, content, published_at) VALUES (?,?,?)";
         $stmt =  mysqli_prepare($conn, $sql);
-        if ($stmt == false) {
+        if ($stmt === false) {
             echo mysqli_error($conn);
         } else {
             mysqli_stmt_bind_param($stmt, 'sss', $title, $content, $published_at);
