@@ -15,3 +15,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 require "includes/header.php";
 ?>
 <h2>Login</h2>
+<?php if(!empty($error)) :?>
+    <p><?= $error ?></p>
+<?php endif; ?>
+
+<form method="post">
+    <div>
+        <label for="username">username</label>
+        <input type="text" name="username" id="username">
+    </div>
+
+    <div>
+        <label for="password">password</label>
+        <input type="password" name="password" id="password">
+    </div>
+
+    <button>Log in</button>
+</form>
+<?php require 'includes/footer.php'; ?>
