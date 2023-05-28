@@ -19,7 +19,10 @@ require './includes/header.php';
     <article>
         <h2><?= $article['title'] ?></h2>
         <p><?= $article['content'] ?></p>
+        <p><?= $article['published_at'] ?></p>
     </article>
+    <a href="./edit-article.php?id=<?= $article['id'] ;?>">Edit</a>
+    <a href='./delete-article.php?id=<?= $article['id'] ;?>">Delete</a>
 <?php endif;
 require './includes/footer.php'
 ?>
