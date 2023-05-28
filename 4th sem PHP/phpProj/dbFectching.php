@@ -1,5 +1,7 @@
 <?php
 require './includes/database.php';
+require './includes/auth.php';
+session_start();
 
 $conn = getDB();
 $sql = "select * from article";
@@ -16,7 +18,13 @@ if ($result === false) {
 require './includes/header.php';
 ?>
 
-<a href="/basic-php/4th%20sem%20PHP/new-article.php">New Article</a>
+<?php if(isLoggedIn()):  ?>
+    <p>you are logged in. <a href="./logout.php">Log out</a> </p>
+    <a href="./new-article.php">New Article</a>
+<?php else:  ?>
+    <p>you are not logged in. <a href="./login.php">Log in</a></p>
+<?php endif; ?>
+
 
 <?php if (empty($articles)) : ?>
     <p>no articles found</p>
