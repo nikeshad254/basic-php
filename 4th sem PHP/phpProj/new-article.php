@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
                 
-                redirect("/basic-php/4th%20sem%20PHP/article.php?id=$id");
+                redirect("/article.php?id=$id");
             } else {
                 echo mysqli_stmt_error($stmt);
             }

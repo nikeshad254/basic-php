@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         mysqli_stmt_bind_param($stmt, 'i', $id);
         if (mysqli_stmt_execute($stmt)) {
-            redirect("/basic-php/4th%20sem%20PHP/article.php?id=$id");
+            redirect("/article.php?id=$id");
         } else {
             echo mysqli_stmt_error($stmt);
         }

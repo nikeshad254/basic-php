@@ -6,7 +6,7 @@ function redirect($path){
     }else{
         $protocol = 'http';
     }
-    header("Location: $protocol://".$_SERVER['HTTP_HOST'].$path);
+    header("Location: $protocol://".$_SERVER['HTTP_HOST']."/basic-php/4th%20sem%20PHP/phpProj".$path);
     exit;
 }
 

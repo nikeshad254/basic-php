@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($_POST['username'] == 'deepak' && $_POST['password'] == 'deepak'){
         session_regenerate_id(true);    //new id everytime login so safe from exploit
         $_SESSION['is_logged_in'] = true;
-        redirect('/');
+        redirect('/dbFectching.php');
     }else{
         $error = "login incorrect";
     }
