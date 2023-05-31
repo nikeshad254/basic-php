@@ -1,17 +1,32 @@
 <?php
 
 class Item{
+    private $fname;
+    private $lname;
 
-    public $name = 'HELLO';
-    public $description;
+    public function setName($fname){
+        return $this->fname = $fname;
+    }
 
-    // function sayHello()
-    // {
-    //     echo "hello programmerss<br>";
-    // }
-
-    function __construct()
-    {
-        echo "constructor called<br>";
+    public function getName(){
+        return $this->fname;
     }
 }
+
+
+
+// class Item{
+
+//     public $name = 'HELLO';
+//     public $description;
+
+//     // function sayHello()
+//     // {
+//     //     echo "hello programmerss<br>";
+//     // }
+
+//     function __construct()
+//     {
+//         echo "constructor called<br>";
+//     }
+// }

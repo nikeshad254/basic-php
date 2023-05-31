@@ -3,7 +3,7 @@ require './Item.php';
 
 $first_obj = new Item();
 
-// $first_obj->name = "new name";
-// $first_obj->sayHello();
+$first_obj->setName("Doraemonz");
+echo $first_obj->getName();
 
 ?>
