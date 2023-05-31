@@ -1,32 +1,16 @@
 <?php
 
 class Item{
-    private $fname;
-    private $lname;
-
-    public function setName($fname){
-        return $this->fname = $fname;
+    public $name;
+    public $address;
+    public static $count=0;
+    public function __construct($name, $address)
+    {
+        $this->name = $name;
+        $this->address=$address;
+        static::$count++;
     }
-
-    public function getName(){
-        return $this->fname;
+    public static function showCount(){
+        echo static::$count;
     }
 }
-
-
-
-// class Item{
-
-//     public $name = 'HELLO';
-//     public $description;
-
-//     // function sayHello()
-//     // {
-//     //     echo "hello programmerss<br>";
-//     // }
-
-//     function __construct()
-//     {
-//         echo "constructor called<br>";
-//     }
-// }

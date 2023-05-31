@@ -1,9 +1,15 @@
 <?php
 require './Item.php';
 
-$first_obj = new Item();
+// static access garna lai, class name and clos :: needed
+var_dump(Item::$count);
+$first_obj = new Item('raju ', 'balaju');
+var_dump(Item::$count);
+echo $first_obj->name;
 
-$first_obj->setName("Doraemonz");
-echo $first_obj->getName();
+$second_obj = new Item('hari ', 'jamal');
+var_dump(Item::$count);
+echo $second_obj->name;
+Item::showCount();
 
 ?>
