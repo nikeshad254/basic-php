@@ -11,9 +11,8 @@ echo "<br>";
 
 $book = new Book();
 $book -> name = "web dev";
-$book -> author = " raja ram";
+$book -> author = " raja ramssss";
 
 echo $book->getDescription();
-echo $book->author;
 
 ?>
