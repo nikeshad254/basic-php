@@ -30,6 +30,17 @@
         table th, table td{
             border: 1px solid red;
         }
+        form{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 20rem;
+        }
+        form div{
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>

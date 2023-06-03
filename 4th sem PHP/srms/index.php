@@ -5,6 +5,8 @@ require './includes/database.php';
 
 ?>
 
+<a href="./addStu.php">Add Student</a>
+
 <table>
     <thead>
         <th>S.N.</th>
