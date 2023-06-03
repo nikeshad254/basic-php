@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
 
-                redirect("/index.php");
+                redirect("/stuMarksheet.php?id=$id");
             } else {
                 echo mysqli_stmt_error($stmt);
             }

@@ -11,10 +11,12 @@
             margin: 0;
             box-sizing: border-box;
         }
+
         nav{
             background-color: purple;
             color: white;
             text-align: center;
+            text-transform: uppercase;
             margin-bottom: 1rem;
             padding: 0.2rem;
             font-weight: bold;
@@ -25,9 +27,9 @@
             text-align: center;
             border-spacing: 0;
             margin: 0 auto;
-            border: 1px solid red;
+            margin-top: 1rem;
         }
-        table th, table td{
+        .borderTable, .borderTable th, .borderTable td{
             border: 1px solid red;
         }
         form{
@@ -41,7 +43,21 @@
             display: flex;
             justify-content: space-between;
         }
+        .marksheet{
+            width: 40rem;
+        }
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
+        .btn{
+            text-decoration: none;
+            padding: 0.3rem;
+            background-color: purple;
+            color: #fff;
+        }
+        
     </style>
 </head>
 <body>
-    <nav><p>Student Record Management System</p></nav>
+    <nav><a href="./index.php" class="link">Student Record Management System</a></nav>
