@@ -3,7 +3,8 @@ require './includes/database.php';
 require './includes/auth.php';
 session_start();
 
-$conn = getDB();
+$db = new Database();
+$conn = $db->getDB();
 $sql = "select * from article";
 $result = mysqli_query($conn, $sql);
 if ($result === false) {
