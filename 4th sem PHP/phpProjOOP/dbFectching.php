@@ -1,16 +1,17 @@
 <?php
-require './includes/database.php';
+require './Class/Database.php';
 require './includes/auth.php';
 session_start();
 
 $db = new Database();
-$conn = $db->getDB();
+$conn = $db->getConn();
+
 $sql = "select * from article";
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 if ($result === false) {
-    echo mysqli_error($conn);
+    echo $conn->errorInfo();
 } else {
-    $articles = mysqli_fetch_all($result,  MYSQLI_ASSOC);
+    $articles = $result->fetchAll(PDO::FETCH_ASSOC);
 
     // echo '<pre>';
     // print_r($articles);
