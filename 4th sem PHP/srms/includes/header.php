@@ -56,6 +56,13 @@
             background-color: purple;
             color: #fff;
         }
+        .buttons{
+            display: flex;
+            gap: 2rem;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+        }
         
     </style>
 </head>

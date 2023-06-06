@@ -95,8 +95,23 @@ require './includes/header.php';
                 <td>GPA</td>
                 <td><?= getGPA($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']); ?></td>
             </tr>
+            <tr>
+                <td>Rank</td>
+                <td><?php
+                    if(passFail($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']) == 'PASS'){
+                        echo getRank($conn, $_GET['id']);
+                    }else{
+                        echo '#';
+                    }
+                ?></td>
+            </tr>
         </tbody>
     </table>
+
+    <div class="buttons">
+        <a href="./editMarksheet.php?id=<?=$_GET['id']?>" class="btn">Edit</a>
+        <a href="./delete.php?id=<?=$_GET['id']?>" class="btn">Delete</a>
+    </div>
 </div>
 
 <?php endif;

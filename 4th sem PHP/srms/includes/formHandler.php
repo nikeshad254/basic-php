@@ -45,4 +45,45 @@ function getGPA($math, $science, $english, $social, $nepali){
     }
 }
 
+function getStuData($conn, $id){
+    $sql = "SELECT * FROM student WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    if($stmt===false){
+        echo mysqli_error($conn);
+    }else{
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        if(mysqli_stmt_execute($stmt)){
+            $result = mysqli_stmt_get_result($stmt);
+            return mysqli_fetch_array($result, MYSQLI_ASSOC);
+        }
+    }
+}
+
+function getRank($conn, $id){
+    $sql = "SELECT id, name, phone, math, science, english, social, nepali, 
+            (math + science + english + social + nepali) AS total_marks
+            FROM student
+            ORDER BY total_marks DESC";
+    
+    $stmt = mysqli_prepare($conn, $sql);
+    
+    if($stmt === false){
+        echo mysqli_error($conn);
+    } else {
+        if(mysqli_stmt_execute($stmt)){
+            $result = mysqli_stmt_get_result($stmt);
+            $rank = 1;
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                if($row['id'] == $id){
+                    return $rank;
+                }
+                $rank++;
+            }
+        }
+    }
+
+    return -1;
+}
+
+
 ?>

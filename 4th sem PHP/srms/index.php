@@ -31,6 +31,7 @@ if ($result === false) {
         <th>English</th>
         <th>Social</th>
         <th>Nepali</th>
+        <th>Rank</th>
         <th>Remark</th>
         <th>Division</th>
         <th>GPA</th>
@@ -51,6 +52,14 @@ if ($result === false) {
             <td><?= $student['social']?></td>
             <td><?= $student['english']?></td>
             <td><?= $student['nepali']?></td>
+            <td><?php
+                    if(passFail($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']) == 'PASS'){
+                        echo getRank($conn, $student['id']);
+                    }else{
+                        echo '#';
+                    }
+                ?>
+            </td>
             <td><?= passFail($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']); ?></td>
             <td><?= getDivision($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']); ?></td>
             <td><?= getGPA($student['math'], $student['science'], $student['social'], $student['english'], $student['nepali']); ?></td>
