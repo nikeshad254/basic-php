@@ -1,0 +1,33 @@
+.calculator-body {
+  border: 2px solid black;
+  border-radius: 10px;
+  /* margin: 0 auto; */
+  width: 20%;
+  padding: 0.5rem;
+}
+
+.display {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
+}
+
+.buttons .btn {
+  height: 3rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.twoCols {
+  grid-column: 3/5;
+}
